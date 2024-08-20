@@ -30,7 +30,24 @@ $ git commit --amend --no-edit // Обновить файл не изменяя 
 
 2. Просмотреть историю коммитов — __git log__
 
-3. Получить сокращённый лог — __git log --oneline
+3. Получить сокращённый лог — __git log --oneline__
+
+## Откатить изменения
+
+1. Убрать файл из после add — __git restore --staged <file>__
+2. «Откатить» коммит — __git reset --hard <commit hash>__
+3. «Откатить» изменения, которые не были добавлены в add — __git restore <file>__
+
+```
+$ git restore --staged example.txt // перевести файл из состояния staged обратно в untracked
+
+$ git restore --staged . // чтобы «сбросить» все файлы из staged
+
+$ git reset --hard b576d89 // все изменения после этого коммита будут удалены
+
+$ git restore example.txt // Изменения в файле «откатятся» до последней версии, которая была сохранена через git commit или git add
+
+```
 
 ## Связываем локальный и удалённый репозитории
 
